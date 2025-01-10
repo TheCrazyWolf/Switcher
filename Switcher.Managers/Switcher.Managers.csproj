@@ -14,4 +14,8 @@
       <ProjectReference Include="..\Switcher.Models\Switcher.Models.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="System.Management" Version="5.0.0" />
+    </ItemGroup>
+    
 </Project>

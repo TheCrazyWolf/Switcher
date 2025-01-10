@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
+using Switcher.Managers.Adapters;
 using Switcher.Managers.Config;
 
 namespace Switcher;
@@ -23,6 +24,10 @@ public partial class App : Application
     { 
         services.AddSingleton<MainWindow>();
         services.AddSingleton<ConfigurationManager>();
+        services.AddScoped<ProxyManager>();
+        services.AddScoped<IpManager>();
+        services.AddScoped<AdaptersManager>();
+        services.AddScoped<DnsManager>();
     }
 
     protected override void OnExit(ExitEventArgs e)

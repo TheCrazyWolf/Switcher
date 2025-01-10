@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Switcher", "Switcher\Switcher.csproj", "{4F91C608-B8BF-41D6-8F12-17DD0343FA34}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E7998DF9-B3DD-4B98-B540-BA9430C3F089}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Switcher.Models", "Switcher.Models\Switcher.Models.csproj", "{6EF08CA5-BC81-4D7F-BB17-72385B899161}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{4F91C608-B8BF-41D6-8F12-17DD0343FA34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F91C608-B8BF-41D6-8F12-17DD0343FA34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F91C608-B8BF-41D6-8F12-17DD0343FA34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EF08CA5-BC81-4D7F-BB17-72385B899161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EF08CA5-BC81-4D7F-BB17-72385B899161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EF08CA5-BC81-4D7F-BB17-72385B899161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EF08CA5-BC81-4D7F-BB17-72385B899161}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4F91C608-B8BF-41D6-8F12-17DD0343FA34} = {E7998DF9-B3DD-4B98-B540-BA9430C3F089}
+		{6EF08CA5-BC81-4D7F-BB17-72385B899161} = {E7998DF9-B3DD-4B98-B540-BA9430C3F089}
 	EndGlobalSection
 EndGlobal

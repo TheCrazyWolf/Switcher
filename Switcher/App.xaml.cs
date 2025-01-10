@@ -20,7 +20,7 @@ public partial class App : Application
     }
     
     private void ConfigureServices(IServiceCollection services)
-    {
+    { 
         services.AddSingleton<MainWindow>();
         services.AddSingleton<ConfigurationManager>();
     }

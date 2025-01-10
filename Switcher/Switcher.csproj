@@ -9,11 +9,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
       <PackageReference Include="WPF-UI" Version="4.0.0-rc.3" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Models\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Switcher.Managers\Switcher.Managers.csproj" />
     </ItemGroup>
 
 </Project>

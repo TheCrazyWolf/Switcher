@@ -12,5 +12,6 @@ public class AdapterConfiguration
     public ConfigurationIPv4 IPv4 { get; set; } = new ConfigurationIPv4();
     public bool IsAutoDns { get; set; }
     public ConfigurationDns Dns { get; set; } = new ConfigurationDns();
+    public bool UseProxy { get; set; }
     public ConfigurationProxy Proxy { get; set; } = new ConfigurationProxy();
 }

@@ -7,7 +7,11 @@ public class ConfigurationManager
 {
     const string ConfigFile = "config.json";
     private IList<AdapterConfiguration> _adapterConfigurations = new List<AdapterConfiguration>();
-
+    
+    public ConfigurationManager()
+    {
+        OpenConfig();
+    }
 
     public IList<AdapterConfiguration> GetAdapterConfigurations()
     {

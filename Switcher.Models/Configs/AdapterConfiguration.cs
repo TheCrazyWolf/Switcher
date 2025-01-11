@@ -1,12 +1,14 @@
 ﻿using Switcher.Models.Configs.Dns;
 using Switcher.Models.Configs.IP;
 using Switcher.Models.Configs.Proxy;
+using Switcher.Models.Network;
 
 namespace Switcher.Models.Configs;
 
 public class AdapterConfiguration
 {
     public string Id { get; private set; } = Guid.NewGuid().ToString().Split("-").First();
+    public NetworkAdapter NetworkInterface { get;  set; } = null!;
     public string DisplayName { get; set; } = string.Empty;
     public string AdapterName { get; set; } = string.Empty;
     public bool IsAutoIpv4 { get; set; }

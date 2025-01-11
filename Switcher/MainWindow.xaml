@@ -18,7 +18,7 @@
                 <ui:TitleBar Title="WPF UI" />
                 <ui:Card Margin="8">
                     <StackPanel Orientation="Horizontal">
-                        <ui:Button Content="Новый конфиг" Icon="{ui:SymbolIcon Fluent24}" />
+                        <ui:Button Content="Новый конфиг" Command="{Binding CreateCommand}" Icon="{ui:SymbolIcon Fluent24}" />
                     </StackPanel>
                 </ui:Card>
             </StackPanel>

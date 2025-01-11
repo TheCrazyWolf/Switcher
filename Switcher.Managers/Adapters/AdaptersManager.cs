@@ -1,14 +1,16 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Net.NetworkInformation;
+using Switcher.Models.Network;
 
 namespace Switcher.Managers.Adapters;
 
 [SuppressMessage("Interoperability", "CA1416:Проверка совместимости платформы")]
 public class AdaptersManager
 {
-    public List<NetworkInterface> GetAdapters()
+    public List<NetworkAdapter> GetAdapters()
     {
         return NetworkInterface.GetAllNetworkInterfaces()
-            .Where(x=> x.NetworkInterfaceType is NetworkInterfaceType.Wireless80211).ToList();
+            .Select(ni => new NetworkAdapter(ni))
+            .ToList();
     }
 }

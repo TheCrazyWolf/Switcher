@@ -15,7 +15,7 @@ public partial class MainConfigsViewModel(ConfigurationManager configurationMana
     [RelayCommand]
     public void RefreshAdapterConfigurationsCommand()
     {
-        AdapterConfigurations = new ObservableCollection<AdapterConfiguration>(configurationManager.GetAdapterConfigurations());
+        ReloadConfigurations();
     }
     
     [RelayCommand]
@@ -30,6 +30,18 @@ public partial class MainConfigsViewModel(ConfigurationManager configurationMana
         var secondWindow = serviceProvider.GetRequiredService<Windows.Editor.Editor>();
         secondWindow.ViewModel.AdapterConfiguration = adapterConfiguration;
         secondWindow.ShowDialog();
+        ReloadConfigurations();
     }
     
+    [RelayCommand]
+    public void Create()
+    {
+        var secondWindow = serviceProvider.GetRequiredService<Windows.Editor.Editor>();
+        secondWindow.ShowDialog();
+    }
+
+    public void ReloadConfigurations()
+    {
+        AdapterConfigurations = new ObservableCollection<AdapterConfiguration>(configurationManager.GetAdapterConfigurations());
+    }
 }

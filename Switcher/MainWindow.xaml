@@ -11,46 +11,51 @@
                  WindowBackdropType="Mica"
                  WindowCornerPreference="Round"
                  WindowStartupLocation="CenterScreen"
-                 Title="MainWindow" Height="450" Width="800">
+                 ResizeMode="NoResize"
+                 WindowState="Normal"
+                 Title="Switcher" Height="600" Width="450">
     <Grid>
-        <StackPanel>
-            <StackPanel>
-                <ui:TitleBar Title="Switcher" />
-                <ui:Card Margin="8">
-                    <StackPanel Orientation="Horizontal">
-                        <ui:Button Content="Новый конфиг" Command="{Binding CreateCommand}" Icon="{ui:SymbolIcon Fluent24}" />
-                    </StackPanel>
-                </ui:Card>
-            </StackPanel>
-            <StackPanel>
-                <ItemsControl Margin="0" Padding="0" ItemsSource="{Binding AdapterConfigurations}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="{x:Type configs:AdapterConfiguration}">
-                            <ui:CardExpander Header="{Binding DisplayName }" Margin="8 0 8  0">
-                                <StackPanel>
-                                    <TextBlock Text="{Binding NetworkInterface.Description }" />
-                                    <StackPanel Orientation="Horizontal" Margin="0 0 0 8">
-                                        <TextBlock Text="{Binding IPv4.IPAddress }" />
-                                        <TextBlock Text="/" />
-                                        <TextBlock Text="{Binding IPv4.DefaultIPGateway }" />
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <ui:Button Content="Применить"
-                                                   Command="{Binding DataContext.ApplyCommand, 
-                             RelativeSource={RelativeSource AncestorType=ui:FluentWindow}}"
-                                                   CommandParameter="{Binding}" Icon="{ui:SymbolIcon Fluent24}" />
-                                        <ui:Button Content="Настройки"
-                                                   Margin="8 0 0 0 "
-                                                   Command="{Binding DataContext.EditCommand, 
-                             RelativeSource={RelativeSource AncestorType=ui:FluentWindow}}"
-                                                   CommandParameter="{Binding}" Icon="{ui:SymbolIcon Fluent24}" />
-                                    </StackPanel>
-                                </StackPanel>
-                            </ui:CardExpander>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ui:TitleBar Grid.Row="0" Title="Switcher" />
+        <StackPanel Grid.Row="1">
+            <ui:Card Margin="8">
+                <StackPanel Orientation="Horizontal">
+                    <ui:Button Content="Новый конфиг" Command="{Binding CreateCommand}" Icon="{ui:SymbolIcon Fluent24}" />
+                </StackPanel>
+            </ui:Card>
         </StackPanel>
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ItemsControl Margin="0" Padding="0" ItemsSource="{Binding AdapterConfigurations}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type configs:AdapterConfiguration}">
+                        <ui:CardExpander Header="{Binding DisplayName}" Margin="8 0 8 0">
+                            <StackPanel>
+                                <TextBlock Text="{Binding NetworkInterface.Description}" />
+                                <StackPanel Orientation="Horizontal" Margin="0 0 0 8">
+                                    <TextBlock Text="{Binding IPv4.IPAddress}" />
+                                    <TextBlock Text="/" />
+                                    <TextBlock Text="{Binding IPv4.DefaultIPGateway}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <ui:Button Content="Применить"
+                                               Command="{Binding DataContext.ApplyCommand, 
+                                 RelativeSource={RelativeSource AncestorType=ui:FluentWindow}}"
+                                               CommandParameter="{Binding}" Icon="{ui:SymbolIcon Fluent24}" />
+                                    <ui:Button Content="Настройки"
+                                               Margin="8 0 0 0 "
+                                               Command="{Binding DataContext.EditCommand, 
+                                 RelativeSource={RelativeSource AncestorType=ui:FluentWindow}}"
+                                               CommandParameter="{Binding}" Icon="{ui:SymbolIcon Fluent24}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </ui:CardExpander>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </ui:FluentWindow>

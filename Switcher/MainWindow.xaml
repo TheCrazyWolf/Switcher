@@ -8,14 +8,14 @@
                  xmlns:configs="clr-namespace:Switcher.Models.Configs;assembly=Switcher.Models"
                  mc:Ignorable="d"
                  ExtendsContentIntoTitleBar="True"
-                     WindowBackdropType="Mica"
-                     WindowCornerPreference="Round"
-                     WindowStartupLocation="CenterScreen"
+                 WindowBackdropType="Mica"
+                 WindowCornerPreference="Round"
+                 WindowStartupLocation="CenterScreen"
                  Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
             <StackPanel>
-                <ui:TitleBar Title="WPF UI"/>
+                <ui:TitleBar Title="WPF UI" />
                 <ui:Card Margin="8">
                     <StackPanel Orientation="Horizontal">
                         <ui:Button Content="Новый конфиг" Icon="{ui:SymbolIcon Fluent24}" />
@@ -24,14 +24,23 @@
             </StackPanel>
             <StackPanel>
                 <ItemsControl Margin="0" Padding="0" ItemsSource="{Binding AdapterConfigurations}">
-                    <ItemsControl.ItemTemplate >
+                    <ItemsControl.ItemTemplate>
                         <DataTemplate DataType="{x:Type configs:AdapterConfiguration}">
                             <ui:CardExpander Header="{Binding DisplayName }" Margin="8 0 8  0">
                                 <StackPanel>
                                     <TextBlock Text="Адаптер" />
                                     <TextBlock Text="{Binding AdapterName }" />
-                                    <ui:Button Content="Применить"            Command="{Binding DataContext.ApplyCommand, 
-                             RelativeSource={RelativeSource AncestorType=ui:FluentWindow}}"  CommandParameter="{Binding}"  Icon="{ui:SymbolIcon Fluent24}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <ui:Button Content="Применить"
+                                                   Command="{Binding DataContext.ApplyCommand, 
+                             RelativeSource={RelativeSource AncestorType=ui:FluentWindow}}"
+                                                   CommandParameter="{Binding}" Icon="{ui:SymbolIcon Fluent24}" />
+                                        <ui:Button Content="Настройки"
+                                                   Margin="8 0 0 0 "
+                                                   Command="{Binding DataContext.EditCommand, 
+                             RelativeSource={RelativeSource AncestorType=ui:FluentWindow}}"
+                                                   CommandParameter="{Binding}" Icon="{ui:SymbolIcon Fluent24}" />
+                                    </StackPanel>
                                 </StackPanel>
                             </ui:CardExpander>
                         </DataTemplate>

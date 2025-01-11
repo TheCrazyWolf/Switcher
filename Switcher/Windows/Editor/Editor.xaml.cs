@@ -1,5 +1,4 @@
-﻿using Switcher.ModelViews;
-using Wpf.Ui.Appearance;
+﻿using Wpf.Ui.Appearance;
 using EditorViewModel = Switcher.ModelViews.Editor.EditorViewModel;
 
 namespace Switcher.Windows.Editor;
@@ -9,10 +8,12 @@ namespace Switcher.Windows.Editor;
 /// </summary>
 public partial class Editor
 {
+    public EditorViewModel ViewModel { get; }
     public Editor(EditorViewModel viewModel)
     {
         InitializeComponent();
-        DataContext = viewModel;
+        ViewModel = viewModel;
+        DataContext = ViewModel;
         ApplicationThemeManager.Apply(this);
     }
 }

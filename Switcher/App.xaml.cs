@@ -3,6 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Switcher.Managers.Adapters;
 using Switcher.Managers.Config;
 using Switcher.ModelViews;
+using Switcher.ModelViews.Editor;
+using Switcher.Windows.Editor;
 using MainConfigsViewModel = Switcher.ModelViews.Main.MainConfigsViewModel;
 
 namespace Switcher;
@@ -27,6 +29,8 @@ public partial class App : Application
         services.AddSingleton<MainWindow>();
         services.AddSingleton<MainConfigsViewModel>();
         services.AddSingleton<ConfigurationManager>();
+        services.AddTransient<Editor>();
+        services.AddTransient<EditorViewModel>();
         services.AddScoped<ProxyManager>();
         services.AddScoped<IpManager>();
         services.AddScoped<AdaptersManager>();

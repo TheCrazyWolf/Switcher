@@ -20,7 +20,7 @@ public partial class EditorViewModel(ConfigurationManager configurationManager, 
     [RelayCommand]
     public void Save()
     {
-        AdapterConfiguration.NetworkInterface = _selectedAdapter;
+        AdapterConfiguration.NetworkInterface = SelectedAdapter;
         configurationManager.AddConfig(AdapterConfiguration);
     }
 }

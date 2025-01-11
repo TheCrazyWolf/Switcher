@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
+using Switcher.Implementations;
 using Switcher.Managers.Adapters;
 using Switcher.Managers.Config;
 using Switcher.Models.Configs;
@@ -32,6 +33,7 @@ public partial class MainConfigsViewModel(ConfigurationManager configurationMana
     {
         var secondWindow = serviceProvider.GetRequiredService<Windows.Editor.Editor>();
         secondWindow.ViewModel.WithAdapter(adapterConfiguration);
+        secondWindow.ViewModel.WindowService = new WindowService(secondWindow);
         secondWindow.ShowDialog();
         ReloadConfigurations();
     }

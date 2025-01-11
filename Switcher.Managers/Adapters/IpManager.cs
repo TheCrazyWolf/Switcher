@@ -15,12 +15,12 @@ public class IpManager
         {
             var adapter = (ManagementObject)o;
             ManagementBaseObject newIp = adapter.GetMethodParameters("EnableStatic");
-            newIp["IPAddress"] = new [] { configurationProxy.IPv4.IPv4 };
-            newIp["SubnetMask"] = new [] { configurationProxy.IPv4.Mask };
+            newIp["IPAddress"] = new [] { configurationProxy.IPv4.IPAddress };
+            newIp["SubnetMask"] = new [] { configurationProxy.IPv4.SubnetMask };
             adapter.InvokeMethod("EnableStatic", newIp, null);
             
             ManagementBaseObject newGateway = adapter.GetMethodParameters("SetGateways");
-            newGateway["DefaultIPGateway"] = new [] { configurationProxy.IPv4.Gateway };
+            newGateway["DefaultIPGateway"] = new [] { configurationProxy.IPv4.DefaultIPGateway };
             newGateway["GatewayCostMetric"] = new [] { 1 };
             adapter.InvokeMethod("SetGateways", newGateway, null);
         }

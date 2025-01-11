@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Switcher.Managers.Adapters;
 using Switcher.Managers.Config;
+using Switcher.ModelViews;
 
 namespace Switcher;
 
@@ -23,6 +24,7 @@ public partial class App : Application
     private void ConfigureServices(IServiceCollection services)
     { 
         services.AddSingleton<MainWindow>();
+        services.AddSingleton<MainConfigsViewModel>();
         services.AddSingleton<ConfigurationManager>();
         services.AddScoped<ProxyManager>();
         services.AddScoped<IpManager>();

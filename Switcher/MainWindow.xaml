@@ -5,14 +5,39 @@
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:local="clr-namespace:Switcher"
                  xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+                 xmlns:configs="clr-namespace:Switcher.Models.Configs;assembly=Switcher.Models"
                  mc:Ignorable="d"
+                 ExtendsContentIntoTitleBar="True"
+                     WindowBackdropType="Mica"
+                     WindowCornerPreference="Round"
+                     WindowStartupLocation="CenterScreen"
                  Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <ui:TitleBar Title="WPF UI"/>
-            <ui:Card Margin="8">
-                <ui:Button Content="Hello World" Icon="{ui:SymbolIcon Fluent24}" />
-            </ui:Card>
+            <StackPanel>
+                <ui:TitleBar Title="WPF UI"/>
+                <ui:Card Margin="8">
+                    <StackPanel Orientation="Horizontal">
+                        <ui:Button Content="Новый конфиг" Icon="{ui:SymbolIcon Fluent24}" />
+                    </StackPanel>
+                </ui:Card>
+            </StackPanel>
+            <StackPanel>
+                <ItemsControl Margin="0" Padding="0" ItemsSource="{Binding AdapterConfigurations}">
+                    <ItemsControl.ItemTemplate >
+                        <DataTemplate DataType="{x:Type configs:AdapterConfiguration}">
+                            <ui:CardExpander Header="{Binding DisplayName }" Margin="8 0 8  0">
+                                <StackPanel>
+                                    <TextBlock Text="Адаптер" />
+                                    <TextBlock Text="{Binding AdapterName }" />
+                                    <ui:Button Content="Применить"            Command="{Binding DataContext.ApplyCommand, 
+                             RelativeSource={RelativeSource AncestorType=ui:FluentWindow}}"  CommandParameter="{Binding}"  Icon="{ui:SymbolIcon Fluent24}" />
+                                </StackPanel>
+                            </ui:CardExpander>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </ui:FluentWindow>

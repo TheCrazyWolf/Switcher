@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Switcher.Managers.Adapters;
 using Switcher.Models.Configs;
 
 namespace Switcher.Managers.Config;

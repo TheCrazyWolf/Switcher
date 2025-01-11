@@ -64,7 +64,8 @@ public class ApplyNetworkConfigManager
         using RegistryKey? key = Registry.CurrentUser.OpenSubKey(registryKeyPath, writable: true);
         if (key == null) return;
         key.SetValue("ProxyEnable", configurationProxy.UseProxy ? 1 : 0, RegistryValueKind.DWord);
-        if (configurationProxy.UseProxy) key.SetValue("ProxyServer", configurationProxy.UseProxy, RegistryValueKind.String);
-        else key.DeleteValue("ProxyServer", throwOnMissingValue: false);
+        if (configurationProxy.UseProxy) key.SetValue("ProxyServer", configurationProxy.Proxy.IPv4, RegistryValueKind.String);
+        if (configurationProxy.Proxy.DontUserForLocallyAdress) key.SetValue("ProxyOverride", "<local>", RegistryValueKind.String);
+        else key.DeleteValue("ProxyOverride", throwOnMissingValue: false);
     }
 }

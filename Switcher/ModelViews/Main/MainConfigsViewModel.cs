@@ -42,6 +42,7 @@ public partial class MainConfigsViewModel(ConfigurationManager configurationMana
     public void Create()
     {
         var secondWindow = serviceProvider.GetRequiredService<Windows.Editor.Editor>();
+        secondWindow.ViewModel.WindowService = new WindowService(secondWindow);
         secondWindow.ShowDialog();
         ReloadConfigurations();
     }

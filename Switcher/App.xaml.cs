@@ -31,10 +31,8 @@ public partial class App : Application
         services.AddSingleton<ConfigurationManager>();
         services.AddTransient<Editor>();
         services.AddTransient<EditorViewModel>();
-        services.AddScoped<ProxyManager>();
-        services.AddScoped<IpManager>();
+        services.AddScoped<ApplyNetworkConfigManager>();
         services.AddScoped<AdaptersManager>();
-        services.AddScoped<DnsManager>();
     }
 
     protected override void OnExit(ExitEventArgs e)

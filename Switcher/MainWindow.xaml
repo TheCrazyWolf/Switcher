@@ -15,7 +15,7 @@
     <Grid>
         <StackPanel>
             <StackPanel>
-                <ui:TitleBar Title="WPF UI" />
+                <ui:TitleBar Title="Switcher" />
                 <ui:Card Margin="8">
                     <StackPanel Orientation="Horizontal">
                         <ui:Button Content="Новый конфиг" Command="{Binding CreateCommand}" Icon="{ui:SymbolIcon Fluent24}" />

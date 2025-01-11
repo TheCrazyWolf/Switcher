@@ -14,8 +14,6 @@ public partial class EditorViewModel(ConfigurationManager configurationManager, 
     [ObservableProperty] private AdapterConfiguration _adapterConfiguration = new ();
     [ObservableProperty] private ObservableCollection<NetworkAdapter> _adapters = new (adaptersManager.GetAdapters());
     [ObservableProperty] private NetworkAdapter? _selectedAdapter;
-
-    public bool IsCanEditDhcp => !AdapterConfiguration.IsAutoIpv4;
     
     [RelayCommand]
     public void Save()
@@ -28,5 +26,6 @@ public partial class EditorViewModel(ConfigurationManager configurationManager, 
     {
         AdapterConfiguration = adapterConfiguration;
         SelectedAdapter = Adapters.FirstOrDefault(x=> x.Id == AdapterConfiguration.NetworkInterface.Id);
+        
     }
 }

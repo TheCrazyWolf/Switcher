@@ -13,68 +13,88 @@
                  WindowStartupLocation="CenterScreen"
                  Title="Редактор" Height="450" Width="800">
     <Grid>
-        <StackPanel>
-            <StackPanel>
-                <ui:TitleBar Title="Редактор" />
-                <StackPanel Orientation="Vertical" Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ui:TitleBar Grid.Row="0" Title="Редактор" />
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Margin="8 0 8 8">
                     <TextBlock Text="Название:" />
                     <TextBox Text="{Binding AdapterConfiguration.DisplayName }" />
                 </StackPanel>
-                <ComboBox ItemsSource="{Binding Adapters}" 
-                          Margin="8"
-                          SelectedItem="{Binding SelectedAdapter}" DisplayMemberPath="Description" />
-                <ui:CardExpander Header="Настройки адресса" Margin="8 0 8 0">
+
+                <StackPanel Grid.Row="1" Margin="8 0 8 8">
+                    <TextBlock Text="Адаптер:" />
+                    <ComboBox ItemsSource="{Binding Adapters}"
+                              SelectedItem="{Binding SelectedAdapter}" DisplayMemberPath="Description"/>
+                </StackPanel>
+
+                <ui:CardExpander Grid.Row="2"   Header="Настройки адреса" Margin="8 0 8 8">
                     <StackPanel Orientation="Vertical">
                         <CheckBox IsChecked="{Binding AdapterConfiguration.IsAutoIpv4}">
                             Использовать автоматические настройки IP
                         </CheckBox>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="IP адрес:"  />
-                            <TextBox IsEnabled="{Binding IsCanEditDhcp}"  Text="{Binding AdapterConfiguration.IPv4.IPAddress }" />
+                            <TextBlock Text="IP адрес:" />
+                            <TextBox Text="{Binding AdapterConfiguration.IPv4.IPAddress }" />
                         </StackPanel>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="Маска подсети:"  />
-                            <TextBox IsEnabled="{Binding IsCanEditDhcp}"  Text="{Binding AdapterConfiguration.IPv4.SubnetMask }" />
+                            <TextBlock Text="Маска подсети:" />
+                            <TextBox Text="{Binding AdapterConfiguration.IPv4.SubnetMask }" />
                         </StackPanel>
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="Основной шлюз:" />
-                            <TextBox IsEnabled="{Binding IsCanEditDhcp}"  Text="{Binding AdapterConfiguration.IPv4.DefaultIPGateway }" />
+                            <TextBox Text="{Binding AdapterConfiguration.IPv4.DefaultIPGateway }" />
                         </StackPanel>
                     </StackPanel>
                 </ui:CardExpander>
-                <ui:CardExpander Header="Настройки DNS" Margin="8 0 8 0">
+
+                <ui:CardExpander Header="Настройки DNS" Margin="8 0 8 8" Grid.Row="3">
                     <StackPanel Orientation="Vertical">
                         <CheckBox IsChecked="{Binding AdapterConfiguration.IsAutoDns}">
                             Использовать автоматические DNS
                         </CheckBox>
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="Основной:" />
-                            <TextBox IsEnabled="{Binding IsCanEditDhcp}"  Text="{Binding AdapterConfiguration.Dns.Main }" />
+                            <TextBox Text="{Binding AdapterConfiguration.Dns.Main }" />
                         </StackPanel>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="Альтернативный:"  />
-                            <TextBox IsEnabled="{Binding IsCanEditDhcp}"  Text="{Binding AdapterConfiguration.Dns.Alternative }" />
+                            <TextBlock Text="Альтернативный:" />
+                            <TextBox Text="{Binding AdapterConfiguration.Dns.Alternative }" />
                         </StackPanel>
                     </StackPanel>
                 </ui:CardExpander>
-                <ui:CardExpander Header="Настройки прокси" Margin="8 0 8 0">
+
+                <ui:CardExpander Header="Настройки прокси" Margin="8 0 8 8" Grid.Row="4">
                     <StackPanel Orientation="Vertical">
                         <CheckBox IsChecked="{Binding AdapterConfiguration.UseProxy}">
                             Использовать прокси-сервер
                         </CheckBox>
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="IP адрес с портом:" Margin="0 0 8 0" />
-                            <TextBox IsEnabled="{Binding IsCanEditDhcp}"  Text="{Binding AdapterConfiguration.Proxy.IPv4 }" />
+                            <TextBox Text="{Binding AdapterConfiguration.Proxy.IPv4 }" />
                         </StackPanel>
                         <CheckBox IsChecked="{Binding AdapterConfiguration.Proxy.DontUserForLocallyAdress}">
                             Не использовать прокси сервер для локальных подключений
                         </CheckBox>
                     </StackPanel>
                 </ui:CardExpander>
-                <StackPanel Orientation="Horizontal" Margin="8">
-                    <ui:Button Content="Сохранить" Command="{Binding SaveCommand}" Icon="{ui:SymbolIcon Fluent24}" />
-                </StackPanel>
-            </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="8 0 8 8">
+            <ui:Button Content="Сохранить" Command="{Binding SaveCommand}" Icon="{ui:SymbolIcon Fluent24}" />
         </StackPanel>
     </Grid>
 </ui:FluentWindow>

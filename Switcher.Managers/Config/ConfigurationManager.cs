@@ -40,7 +40,7 @@ public class ConfigurationManager
 
     public void AddConfig(AdapterConfiguration adapterConfiguration)
     {
-        _adapterConfigurations.Add(adapterConfiguration);
+        if(!_adapterConfigurations.Contains(adapterConfiguration)) _adapterConfigurations.Add(adapterConfiguration);
         SaveConfig();
     }
 }

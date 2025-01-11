@@ -1,0 +1,30 @@
+﻿<ui:FluentWindow x:Class="Switcher.Windows.Editor.Editor"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:local="clr-namespace:Switcher"
+                 xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+                 xmlns:configs="clr-namespace:Switcher.Models.Configs;assembly=Switcher.Models"
+                 mc:Ignorable="d"
+                 ExtendsContentIntoTitleBar="True"
+                 WindowBackdropType="Mica"
+                 WindowCornerPreference="Round"
+                 WindowStartupLocation="CenterScreen"
+                 Title="Редактор" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel>
+                <ui:TextBox></ui:TextBox>
+            </StackPanel>
+            <StackPanel>
+                <ui:TitleBar Title="Редактор" />
+                <ui:Card Margin="8">
+                    <StackPanel Orientation="Horizontal">
+                        <ui:Button Content="Новый конфиг" Icon="{ui:SymbolIcon Fluent24}" />
+                    </StackPanel>
+                </ui:Card>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</ui:FluentWindow>

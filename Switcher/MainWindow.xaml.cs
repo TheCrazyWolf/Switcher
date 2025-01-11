@@ -1,5 +1,6 @@
 ﻿using Switcher.ModelViews;
 using Wpf.Ui.Appearance;
+using MainConfigsViewModel = Switcher.ModelViews.Main.MainConfigsViewModel;
 
 namespace Switcher;
 

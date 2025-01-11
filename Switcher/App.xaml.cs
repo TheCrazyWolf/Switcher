@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Switcher.Managers.Adapters;
 using Switcher.Managers.Config;
 using Switcher.ModelViews;
+using MainConfigsViewModel = Switcher.ModelViews.Main.MainConfigsViewModel;
 
 namespace Switcher;
 

@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using Switcher.Managers.Config;
 using Switcher.Models.Configs;
 
-namespace Switcher.ModelViews;
+namespace Switcher.ModelViews.Main;
 
 public partial class MainConfigsViewModel(ConfigurationManager configurationManager) : ObservableObject
 {

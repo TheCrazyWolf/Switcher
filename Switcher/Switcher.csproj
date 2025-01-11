@@ -18,4 +18,9 @@
       <ProjectReference Include="..\Switcher.Managers\Switcher.Managers.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Assets\appIcon.png" />
+      <Resource Include="Assets\appIcon.png" />
+    </ItemGroup>
+
 </Project>

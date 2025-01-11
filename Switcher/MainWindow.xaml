@@ -13,6 +13,7 @@
                  WindowStartupLocation="CenterScreen"
                  ResizeMode="NoResize"
                  WindowState="Normal"
+                 Icon="Assets/appIcon.png"
                  Title="Switcher" Height="600" Width="450">
     <Grid>
         <Grid.RowDefinitions>

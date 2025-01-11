@@ -20,7 +20,7 @@ public partial class EditorViewModel(ConfigurationManager configurationManager, 
     [RelayCommand]
     public void Save()
     {
-        AdapterConfiguration.NetworkInterface = SelectedAdapter;
+        if (SelectedAdapter != null) AdapterConfiguration.NetworkInterface = SelectedAdapter;
         configurationManager.AddConfig(AdapterConfiguration);
         if(WindowService is not null) WindowService.CloseWindow();
     }

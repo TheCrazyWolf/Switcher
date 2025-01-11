@@ -6,6 +6,7 @@ using Switcher.Implementations;
 using Switcher.Managers.Adapters;
 using Switcher.Managers.Config;
 using Switcher.Models.Configs;
+using Wpf.Ui.Controls;
 
 namespace Switcher.ModelViews.Main;
 

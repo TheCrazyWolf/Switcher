@@ -46,7 +46,7 @@
                               SelectedItem="{Binding SelectedAdapter}" DisplayMemberPath="Description"/>
                 </StackPanel>
 
-                <ui:CardExpander Grid.Row="2" Header="Настройки адреса" Margin="8 0 8 8">
+                <ui:CardExpander Grid.Row="2" Header="Настройки адреса" Margin="8 0 8 0">
                     <StackPanel Orientation="Vertical">
                         <CheckBox IsChecked="{Binding AdapterConfiguration.IsAutoIpv4}">
                             Использовать автоматические настройки IP
@@ -66,7 +66,7 @@
                     </StackPanel>
                 </ui:CardExpander>
 
-                <ui:CardExpander Header="Настройки DNS" Margin="8 0 8 8" Grid.Row="3">
+                <ui:CardExpander Header="Настройки DNS" Margin="8 0 8 0" Grid.Row="3">
                     <StackPanel Orientation="Vertical">
                         <CheckBox IsChecked="{Binding AdapterConfiguration.IsAutoDns}">
                             Использовать автоматические DNS
@@ -82,7 +82,7 @@
                     </StackPanel>
                 </ui:CardExpander>
 
-                <ui:CardExpander Header="Настройки прокси" Margin="8 0 8 8" Grid.Row="4">
+                <ui:CardExpander Header="Настройки прокси" Margin="8 0 8 0" Grid.Row="4">
                     <StackPanel Orientation="Vertical">
                         <CheckBox IsChecked="{Binding AdapterConfiguration.UseProxy}">
                             Использовать прокси-сервер
@@ -99,7 +99,7 @@
             </Grid>
         </ScrollViewer>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="8 0 8 8">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="8 8 8 8">
             <ui:Button Content="Сохранить" Command="{Binding SaveCommand}" Icon="{ui:SymbolIcon Fluent24}" />
         </StackPanel>
     </Grid>

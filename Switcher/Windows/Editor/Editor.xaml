@@ -15,10 +15,10 @@
     <Grid>
         <StackPanel>
             <StackPanel>
-                <ui:TextBox></ui:TextBox>
-            </StackPanel>
-            <StackPanel>
                 <ui:TitleBar Title="Редактор" />
+                <ComboBox ItemsSource="{Binding Adapters}" 
+                          Margin="8"
+                          SelectedItem="{Binding SelectedAdapter}" DisplayMemberPath="Description" />
                 <ui:Card Margin="8">
                     <StackPanel Orientation="Horizontal">
                         <ui:Button Content="Новый конфиг" Icon="{ui:SymbolIcon Fluent24}" />

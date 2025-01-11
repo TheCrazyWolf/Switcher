@@ -23,4 +23,10 @@ public partial class EditorViewModel(ConfigurationManager configurationManager, 
         AdapterConfiguration.NetworkInterface = SelectedAdapter;
         configurationManager.AddConfig(AdapterConfiguration);
     }
+
+    public void WithAdapter(AdapterConfiguration adapterConfiguration)
+    {
+        AdapterConfiguration = adapterConfiguration;
+        SelectedAdapter = Adapters.FirstOrDefault(x=> x.Id == AdapterConfiguration.NetworkInterface.Id);
+    }
 }

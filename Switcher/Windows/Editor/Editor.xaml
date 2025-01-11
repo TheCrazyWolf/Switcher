@@ -23,41 +23,41 @@
                 <ComboBox ItemsSource="{Binding Adapters}" 
                           Margin="8"
                           SelectedItem="{Binding SelectedAdapter}" DisplayMemberPath="Description" />
-                <ui:CardExpander Header="Настройки адресса" Margin="8">
+                <ui:CardExpander Header="Настройки адресса" Margin="8 0 8 0">
                     <StackPanel Orientation="Vertical">
                         <CheckBox IsChecked="{Binding AdapterConfiguration.IsAutoIpv4}">
                             Использовать автоматические настройки IP
                         </CheckBox>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="IP адрес:" Margin="0 0 8 0" />
+                            <TextBlock Text="IP адрес:"  />
                             <TextBox IsEnabled="{Binding IsCanEditDhcp}"  Text="{Binding AdapterConfiguration.IPv4.IPAddress }" />
                         </StackPanel>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="Маска подсети:" Margin="0 0 8 0" />
+                            <TextBlock Text="Маска подсети:"  />
                             <TextBox IsEnabled="{Binding IsCanEditDhcp}"  Text="{Binding AdapterConfiguration.IPv4.SubnetMask }" />
                         </StackPanel>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="Основной шлюз:" Margin="0 0 8 0" />
+                            <TextBlock Text="Основной шлюз:" />
                             <TextBox IsEnabled="{Binding IsCanEditDhcp}"  Text="{Binding AdapterConfiguration.IPv4.DefaultIPGateway }" />
                         </StackPanel>
                     </StackPanel>
                 </ui:CardExpander>
-                <ui:CardExpander Header="Настройки DNS" Margin="8">
+                <ui:CardExpander Header="Настройки DNS" Margin="8 0 8 0">
                     <StackPanel Orientation="Vertical">
                         <CheckBox IsChecked="{Binding AdapterConfiguration.IsAutoDns}">
                             Использовать автоматические DNS
                         </CheckBox>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="Основной:" Margin="0 0 8 0" />
+                            <TextBlock Text="Основной:" />
                             <TextBox IsEnabled="{Binding IsCanEditDhcp}"  Text="{Binding AdapterConfiguration.Dns.Main }" />
                         </StackPanel>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="Альтернативный:" Margin="0 0 8 0" />
+                            <TextBlock Text="Альтернативный:"  />
                             <TextBox IsEnabled="{Binding IsCanEditDhcp}"  Text="{Binding AdapterConfiguration.Dns.Alternative }" />
                         </StackPanel>
                     </StackPanel>
                 </ui:CardExpander>
-                <ui:CardExpander Header="Настройки DNS" Margin="8">
+                <ui:CardExpander Header="Настройки прокси" Margin="8 0 8 0">
                     <StackPanel Orientation="Vertical">
                         <CheckBox IsChecked="{Binding AdapterConfiguration.UseProxy}">
                             Использовать прокси-сервер
@@ -71,7 +71,7 @@
                         </CheckBox>
                     </StackPanel>
                 </ui:CardExpander>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="8">
                     <ui:Button Content="Сохранить" Command="{Binding SaveCommand}" Icon="{ui:SymbolIcon Fluent24}" />
                 </StackPanel>
             </StackPanel>

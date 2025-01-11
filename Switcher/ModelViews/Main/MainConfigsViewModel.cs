@@ -28,7 +28,7 @@ public partial class MainConfigsViewModel(ConfigurationManager configurationMana
     public void Edit(AdapterConfiguration adapterConfiguration)
     {
         var secondWindow = serviceProvider.GetRequiredService<Windows.Editor.Editor>();
-        secondWindow.ViewModel.AdapterConfiguration = adapterConfiguration;
+        secondWindow.ViewModel.WithAdapter(adapterConfiguration);
         secondWindow.ShowDialog();
         ReloadConfigurations();
     }
@@ -38,6 +38,7 @@ public partial class MainConfigsViewModel(ConfigurationManager configurationMana
     {
         var secondWindow = serviceProvider.GetRequiredService<Windows.Editor.Editor>();
         secondWindow.ShowDialog();
+        ReloadConfigurations();
     }
 
     public void ReloadConfigurations()

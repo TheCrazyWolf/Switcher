@@ -100,7 +100,7 @@
         </ScrollViewer>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="8 8 8 8">
-            <ui:Button Content="Сохранить" Command="{Binding SaveCommand}" Icon="{ui:SymbolIcon Fluent24}" />
+            <ui:Button Content="Сохранить" Command="{Binding SaveCommand}" Icon="{ui:SymbolIcon Save28}" />
         </StackPanel>
     </Grid>
 </ui:FluentWindow>

@@ -25,7 +25,7 @@
         <StackPanel Grid.Row="1">
             <ui:Card Margin="8">
                 <StackPanel Orientation="Horizontal">
-                    <ui:Button Content="Новый конфиг" Command="{Binding CreateCommand}" Icon="{ui:SymbolIcon Fluent24}" />
+                    <ui:Button Content="Новый конфиг" Command="{Binding CreateCommand}" Icon="{ui:SymbolIcon New16}" />
                 </StackPanel>
             </ui:Card>
         </StackPanel>
@@ -45,12 +45,12 @@
                                     <ui:Button Content="Применить"
                                                Command="{Binding DataContext.ApplyCommand, 
                                  RelativeSource={RelativeSource AncestorType=ui:FluentWindow}}"
-                                               CommandParameter="{Binding}" Icon="{ui:SymbolIcon Fluent24}" />
+                                               CommandParameter="{Binding}" Icon="{ui:SymbolIcon Settings16}" />
                                     <ui:Button Content="Настройки"
                                                Margin="8 0 0 0 "
                                                Command="{Binding DataContext.EditCommand, 
                                  RelativeSource={RelativeSource AncestorType=ui:FluentWindow}}"
-                                               CommandParameter="{Binding}" Icon="{ui:SymbolIcon Fluent24}" />
+                                               CommandParameter="{Binding}" Icon="{ui:SymbolIcon Edit20}" />
                                 </StackPanel>
                             </StackPanel>
                         </ui:CardExpander>

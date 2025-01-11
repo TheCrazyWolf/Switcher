@@ -28,8 +28,12 @@
                         <DataTemplate DataType="{x:Type configs:AdapterConfiguration}">
                             <ui:CardExpander Header="{Binding DisplayName }" Margin="8 0 8  0">
                                 <StackPanel>
-                                    <TextBlock Text="Адаптер" />
-                                    <TextBlock Text="{Binding AdapterName }" />
+                                    <TextBlock Text="{Binding NetworkInterface.Description }" />
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 0 8">
+                                        <TextBlock Text="{Binding IPv4.IPAddress }" />
+                                        <TextBlock Text="/" />
+                                        <TextBlock Text="{Binding IPv4.DefaultIPGateway }" />
+                                    </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <ui:Button Content="Применить"
                                                    Command="{Binding DataContext.ApplyCommand, 

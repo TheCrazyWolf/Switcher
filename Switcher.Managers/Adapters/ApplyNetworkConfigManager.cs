@@ -23,9 +23,13 @@ public class ApplyNetworkConfigManager
         {
             var adapter = (ManagementObject)o;
             ManagementBaseObject newDNS = adapter.GetMethodParameters("SetDNSServerSearchOrder");
-            string[] dnsServers = [configuration.Dns.Main, configuration.Dns.Alternative];
-            newDNS["DNSServerSearchOrder"] = dnsServers;
-            adapter.InvokeMethod("SetDNSServerSearchOrder", newDNS, null);
+            if (configuration.IsAutoDns) adapter.InvokeMethod("SetDNSServerSearchOrder", null);
+            else
+            {
+                string[] dnsServers = [configuration.Dns.Main, configuration.Dns.Alternative];
+                newDNS["DNSServerSearchOrder"] = dnsServers;
+                adapter.InvokeMethod("SetDNSServerSearchOrder", newDNS, null);
+            }
         }
     }
     
@@ -36,15 +40,20 @@ public class ApplyNetworkConfigManager
         foreach (var o in searcher.Get())
         {
             var adapter = (ManagementObject)o;
-            ManagementBaseObject newIp = adapter.GetMethodParameters("EnableStatic");
-            newIp["IPAddress"] = new [] { configuration.IPv4.IPAddress };
-            newIp["SubnetMask"] = new [] { configuration.IPv4.SubnetMask };
-            adapter.InvokeMethod("EnableStatic", newIp, null);
             
-            ManagementBaseObject newGateway = adapter.GetMethodParameters("SetGateways");
-            newGateway["DefaultIPGateway"] = new [] { configuration.IPv4.DefaultIPGateway };
-            newGateway["GatewayCostMetric"] = new [] { 1 };
-            adapter.InvokeMethod("SetGateways", newGateway, null);
+            if (configuration.IsAutoIpv4) adapter.InvokeMethod("EnableDHCP", null);
+            else
+            {
+                ManagementBaseObject newIp = adapter.GetMethodParameters("EnableStatic");
+                newIp["IPAddress"] = new [] { configuration.IPv4.IPAddress };
+                newIp["SubnetMask"] = new [] { configuration.IPv4.SubnetMask };
+                adapter.InvokeMethod("EnableStatic", newIp, null);
+            
+                ManagementBaseObject newGateway = adapter.GetMethodParameters("SetGateways");
+                newGateway["DefaultIPGateway"] = new [] { configuration.IPv4.DefaultIPGateway };
+                newGateway["GatewayCostMetric"] = new [] { 1 };
+                adapter.InvokeMethod("SetGateways", newGateway, null);
+            }
         }
     }
     
